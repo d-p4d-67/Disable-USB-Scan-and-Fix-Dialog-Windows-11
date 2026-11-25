@@ -20,6 +20,8 @@
 
 A lightweight [Windhawk](https://windhawk.net/) mod for Windows 11 that suppresses the USB drive scan-and-repair dialog and its associated AutoPlay notification without disabling the AutoPlay service.
 
+![USB Scan and Fix dialog blocked](https://raw.githubusercontent.com/d-p4d-67/Disable-USB-Scan-and-Fix-Dialog-Windows-11/main/Disk_Check_dialog.png)
+
 ### Features
 
 | Feature | Behavior |
