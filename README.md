@@ -6,7 +6,7 @@
 
 ![Windows 11](https://img.shields.io/badge/Windows-11-0078D4?logo=windows&logoColor=white)
 ![Windhawk](https://img.shields.io/badge/Windhawk-Mod-5856D6)
-![Version](https://img.shields.io/badge/version-1.1-blue)
+![Version](https://img.shields.io/badge/version-1.2-blue)
 ![C++](https://img.shields.io/badge/C%2B%2B-00599C?logo=cplusplus&logoColor=white)
 [![MIT License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 
@@ -49,8 +49,9 @@ To undo the change, disable the mod in Windhawk.
 ### Compatibility and implementation
 
 - Target operating system: Windows 11.
-- Version 1.1 was compiled and tested on the author's Windows installation. Both hooks initialized successfully; the notification hook logged a blocked warning and neither warning nor dialog appeared.
-- Other Windows builds, language configurations, and independent dialog interception have not been fully verified.
+- Version 1.1 was compiled and tested on the author's Russian-language Windows 11 installation. Both hooks initialized successfully; the notification hook logged a blocked warning and neither warning nor dialog appeared.
+- Version 1.2 addresses review feedback: retains the hook implementation modules, restricts injection to Explorer, and targets x86-64. Local compilation and runtime testing of this revision are pending.
+- Other Windows builds, English warning matching, and independent dialog interception have not been fully verified.
 - Uses `TaskDialogIndirect` and `IToastNotifier::Show` hooks in the configured processes. Warning text is matched in English or Russian. Unrecognized content is passed through.
 
 > [!WARNING]
@@ -90,7 +91,9 @@ To undo the change, disable the mod in Windhawk.
 
 ### Совместимость
 
-Версия 1.1 успешно скомпилирована и протестирована на компьютере автора под Windows 11. Инициализация обоих перехватов и блокировка уведомления подтверждены логами. Окно и уведомление не появились. Другие сборки Windows, языки и отдельный перехват окна полностью не проверены.
+Версия 1.1 успешно скомпилирована и протестирована на компьютере автора под Windows 11 с русским интерфейсом. Инициализация обоих перехватов и блокировка уведомления подтверждены логами. Окно и уведомление не появились.
+
+Версия 1.2 учитывает замечания проверяющего: удерживает DLL перехватываемых функций, ограничивает внедрение процессом Explorer и архитектурой x86-64. Локальная компиляция и тестирование новой версии ещё предстоят. Английский интерфейс, другие сборки Windows и отдельный перехват окна полностью не проверены.
 
 > [!WARNING]
 > Мод скрывает предупреждения, но не исправляет ошибки файловой системы, не сбрасывает признак Dirty Bit и не предотвращает потерю данных. Создавайте резервные копии важных файлов, безопасно извлекайте накопители и при необходимости проверяйте их вручную.
@@ -101,6 +104,7 @@ To undo the change, disable the mod in Windhawk.
 
 | Version | Changes |
 | --- | --- |
+| 1.2 | Retained hook implementation DLLs, restricted injection to Explorer and x86-64, improved DLL loading and typed hooks, added project homepage; local testing pending |
 | 1.1 | Added selective AutoPlay notification filtering and English/Russian warning matching |
 | 1.0 | Initial scan-and-fix dialog interception |
 
