@@ -51,10 +51,8 @@ To undo the change, disable the mod in Windhawk.
 ### Compatibility and implementation
 
 - Target operating system: Windows 11.
-- Version 1.1 was compiled and tested on the author's Russian-language Windows 11 installation. Both hooks initialized successfully; the notification hook logged a blocked warning and neither warning nor dialog appeared.
-- Version 1.2 addresses review feedback: retains the hook implementation modules, restricts injection to Explorer, and targets x86-64. Local compilation and runtime testing of this revision are pending.
-- Other Windows builds, English warning matching, and independent dialog interception have not been fully verified.
-- Uses `TaskDialogIndirect` and `IToastNotifier::Show` hooks in the configured processes. Warning text is matched in English or Russian. Unrecognized content is passed through.
+- Tested on Windows 11 with a Russian display language. Both hooks initialized successfully, and USB disk warning notification blocking was confirmed in debug logs. English text matching, other Windows builds, and independent dialog interception have not been verified.
+- Uses `TaskDialogIndirect` and `IToastNotifier::Show` hooks in Explorer (x86-64). Warning text is matched in English or Russian. Unrecognized content is passed through.
 
 > [!WARNING]
 > This mod hides warnings. It does not repair filesystem errors, clear the dirty bit, or prevent data loss. Back up important files, eject removable drives safely, and check damaged drives manually when necessary.
@@ -93,9 +91,7 @@ To undo the change, disable the mod in Windhawk.
 
 ### Совместимость
 
-Версия 1.1 успешно скомпилирована и протестирована на компьютере автора под Windows 11 с русским интерфейсом. Инициализация обоих перехватов и блокировка уведомления подтверждены логами. Окно и уведомление не появились.
-
-Версия 1.2 учитывает замечания проверяющего: удерживает DLL перехватываемых функций, ограничивает внедрение процессом Explorer и архитектурой x86-64. Локальная компиляция и тестирование новой версии ещё предстоят. Английский интерфейс, другие сборки Windows и отдельный перехват окна полностью не проверены.
+Протестировано на Windows 11 с русским языком интерфейса. Инициализация обоих перехватов и блокировка уведомления о проверке USB-накопителя подтверждены логами. Английский интерфейс, другие сборки Windows и отдельный перехват диалогового окна не проверены.
 
 > [!WARNING]
 > Мод скрывает предупреждения, но не исправляет ошибки файловой системы, не сбрасывает признак Dirty Bit и не предотвращает потерю данных. Создавайте резервные копии важных файлов, безопасно извлекайте накопители и при необходимости проверяйте их вручную.
@@ -106,7 +102,7 @@ To undo the change, disable the mod in Windhawk.
 
 | Version | Changes |
 | --- | --- |
-| 1.2 | Retained hook implementation DLLs, restricted injection to Explorer and x86-64, improved DLL loading and typed hooks, added project homepage; local testing pending |
+| 1.2 | Retained hook implementation DLLs, restricted injection to Explorer and x86-64, improved DLL loading and typed hooks, added project homepage |
 | 1.1 | Added selective AutoPlay notification filtering and English/Russian warning matching |
 | 1.0 | Initial scan-and-fix dialog interception |
 
