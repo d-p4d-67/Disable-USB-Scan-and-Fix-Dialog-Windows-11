@@ -6,7 +6,7 @@
 
 ![Windows 11](https://img.shields.io/badge/Windows-11-0078D4?logo=windows&logoColor=white)
 ![Windhawk](https://img.shields.io/badge/Windhawk-Mod-5856D6)
-![Version](https://img.shields.io/badge/version-1.3-blue)
+![Version](https://img.shields.io/badge/version-1.4-blue)
 ![C++](https://img.shields.io/badge/C%2B%2B-00599C?logo=cplusplus&logoColor=white)
 [![MIT License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 
@@ -29,7 +29,7 @@ A lightweight [Windhawk](https://windhawk.net/) mod for Windows 11 that suppress
 | Scan and Fix dialog | Prevents associated dialogs from opening through suppressed notifications |
 | Disk repair notification | Suppresses matching disk warning toasts |
 | Other notifications | Non-matching notifications are passed through |
-| AutoPlay | The service remains enabled |
+| AutoPlay | The service remains enabled; suppressing the warning may skip the AutoPlay action for that insertion |
 | Registry | No registry changes |
 | Languages | Automatic localization using Windows resources; English/Russian fallback |
 
@@ -51,8 +51,8 @@ To undo the change, disable the mod in Windhawk.
 ### Compatibility and implementation
 
 - Target operating system: Windows 11.
-- Tested on Windows 11 with Russian, German and French (Luxembourg) language settings, including after a restart. On the tested USB drive, the notification, associated dialog and unwanted automatic opening of File Explorer were suppressed. Other notifications continued to work.
-- Automatically loads localized notification text from Windows system resources. No manual configuration is required.
+- Version 1.4 tested on Windows 11 with Russian, German and French (Luxembourg) language settings, including after a restart. On the tested USB drive, the notification, associated dialog and unwanted automatic opening of File Explorer were suppressed. Other notifications continued to work.
+- Automatically loads localized notification text from Windows system resources. No manual configuration is required. Version 1.4 uses notification filtering only.
 
 > [!WARNING]
 > This mod hides warnings. It does not repair filesystem errors, clear the dirty bit, or prevent data loss. Back up important files, eject removable drives safely, and check damaged drives manually when necessary.
@@ -70,7 +70,7 @@ To undo the change, disable the mod in Windhawk.
 | Окно проверки диска | Предотвращает открытие связанных окон через заблокированные уведомления |
 | Уведомление о диске | Блокировка соответствующих предупреждений |
 | Остальные уведомления | Не соответствующие фильтру уведомления пропускаются |
-| Автозапуск | Служба остаётся включённой |
+| Автозапуск | Служба остаётся включённой; блокировка предупреждения может отменить действие автозапуска при данном подключении |
 | Реестр | Без изменений |
 | Языки | Автоматическая локализация через ресурсы Windows; русский и английский резервные шаблоны |
 
@@ -91,7 +91,7 @@ To undo the change, disable the mod in Windhawk.
 
 ### Совместимость
 
-Проверено на Windows 11 с русскими, немецкими и французскими (Люксембург) языковыми настройками, в том числе после перезагрузки. На проверенном накопителе не появлялись предупреждение, связанное окно и нежелательное автоматическое открытие Проводника. Остальные уведомления продолжали работать. Ручная настройка не требуется.
+Версия 1.4 проверена на Windows 11 с русскими, немецкими и французскими (Люксембург) языковыми настройками, в том числе после перезагрузки. На проверенном накопителе не появлялись предупреждение, связанное окно и нежелательное автоматическое открытие Проводника. Остальные уведомления продолжали работать. Ручная настройка не требуется. Версия 1.4 использует только фильтрацию уведомлений.
 
 > [!WARNING]
 > Мод скрывает предупреждения, но не исправляет ошибки файловой системы, не сбрасывает признак Dirty Bit и не предотвращает потерю данных. Создавайте резервные копии важных файлов, безопасно извлекайте накопители и при необходимости проверяйте их вручную.
@@ -102,6 +102,7 @@ To undo the change, disable the mod in Windhawk.
 
 | Version | Changes |
 | --- | --- |
+| 1.4 | Removed independent task dialog hook; notification-only filtering, simplified localized text storage and successful regression testing |
 | 1.3 | Automatic notification localization using Windows resources; simplified code with no manual settings or detailed diagnostic logging |
 | 1.2 | Retained hook implementation DLLs, restricted injection to Explorer and x86-64, improved DLL loading and typed hooks, added project homepage |
 | 1.1 | Added selective AutoPlay notification filtering and English/Russian warning matching |
